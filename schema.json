@@ -1,0 +1,174 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Sea of Bottles API",
+    "description": "Send a bottle with a letter to sea, and get a reply from other people, or reply a bottle from other people, you can get your unread letters here",
+    "version": "v1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://bottle.immersivetranslate.com"
+    }
+  ],
+  "paths": {
+    "/api/send-bottle-with-letter": {
+      "get": {
+        "description": "Send bottle with a letter to sea, you must ask the user for the letter they want to carry in the bottle before requesting this API, once succeed, you can remind user that they can check their unread message manually.",
+        "operationId": "sendBottleWithLetter",
+        "parameters": [
+          {
+            "name": "letter",
+            "in": "query",
+            "description": "letter content",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "targetGender",
+            "in": "query",
+            "description": "target gender of the bottle, male or female, optional",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "targetMinAge",
+            "in": "query",
+            "description": "target min age of the bottle, optional",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "targetMaxAge",
+            "in": "query",
+            "description": "target max age of the bottle, optional",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "targetIsoCountryCode",
+            "in": "query",
+            "description": "target iso country code of the bottle, optional",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "deprecated": false
+      }
+    },
+
+    "/api/get-bottles": {
+      "get": {
+        "description": "Get ran bottles from sea, if user specify the filter, then the result will be filtered",
+        "operationId": "getBottles",
+        "parameters": [
+          {
+            "name": "filterGender",
+            "in": "query",
+            "description": "filter bottles with specific gender, male or female, optional",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filterMinAge",
+            "in": "query",
+            "description": "filter bottles with specific min age, optional",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filterMaxAge",
+            "in": "query",
+            "description": "filter bottles with specific max age, optional",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filterIsoCountryCode",
+            "in": "query",
+            "description": "filter bottles with specific iso country code, optional",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "deprecated": false
+      }
+    },
+
+    "/api/release-bottle": {
+      "get": {
+        "description": "Release a bottle from sea",
+        "operationId": "releaseBottle",
+        "parameters": [
+          {
+            "name": "bottleId",
+            "in": "query",
+            "description": "id of the bottle",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "deprecated": false
+      }
+    },
+
+    "/api/reply-bottle": {
+      "get": {
+        "description": "reply a bottle",
+        "operationId": "replyBottleWithLetter",
+        "parameters": [
+          {
+            "name": "bottleId",
+            "in": "query",
+            "description": "id of the bottle",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "letter",
+            "in": "query",
+            "description": "letter content",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "deprecated": false
+      }
+    },
+
+    "/api/get-unread-letters": {
+      "get": {
+        "description": "Get all unread letters",
+        "operationId": "getUnreadLetters",
+        "parameters": [],
+        "deprecated": false
+      }
+    }
+  },
+  "components": {
+    "schemas": {}
+  }
+}
