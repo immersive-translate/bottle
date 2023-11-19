@@ -214,7 +214,7 @@ app.get("/api/get-bottles", async (c) => {
       "active-bottles",
     ],
   }, {
-    limit: 10,
+    limit: 100,
   });
   for await (const res of iter) {
     allActiveBottleIds.push(res.key[1]);
@@ -411,7 +411,7 @@ app.get("/api/get-unread-letters", async (c: Context) => {
       conversationId,
     ],
   }, {
-    limit: 10,
+    limit: 100,
   });
   for await (const res of iter) {
     allUnreadMessages.push(res.value);
@@ -432,7 +432,7 @@ app.get("/admin/api/get-all-messages", async (c: Context) => {
       "letters",
     ],
   }, {
-    limit: 10,
+    limit: 100,
   });
   for await (const res of iter) {
     allMessages.push(res.value);
@@ -450,7 +450,7 @@ app.get("/admin/api/get-all-bottles", async (c: Context) => {
       "bottles",
     ],
   }, {
-    limit: 10,
+    limit: 100,
   });
   for await (const res of iter) {
     allMessages.push(res.value);
@@ -467,7 +467,7 @@ app.get("/admin/api/get-all-active/bottles", async (c: Context) => {
       "active-bottles",
     ],
   }, {
-    limit: 10,
+    limit: 100,
   });
   for await (const res of iter) {
     allMessages.push(res.value);
@@ -484,7 +484,7 @@ app.get("/admin/api/get-all-unread-letters", async (c: Context) => {
       "unread-letters",
     ],
   }, {
-    limit: 10,
+    limit: 100,
   });
   for await (const res of iter) {
     allMessages.push(res.value);
