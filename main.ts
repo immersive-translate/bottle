@@ -219,11 +219,13 @@ app.get("/api/get-bottles", async (c) => {
   for await (const res of iter) {
     allActiveBottleIds.push(res.key[1]);
   }
+  console.log("allActiveBottleIds", allActiveBottleIds);
   // get random 10 bottles
 
   if (allActiveBottleIds.length > 10) {
     allActiveBottleIds = allActiveBottleIds.sort(() => Math.random() - 0.5);
   }
+  console.log("allActiveBottleIds", allActiveBottleIds);
 
   const allBottles = await kv.getMany(allActiveBottleIds.map((id) => [
     "bottles",
