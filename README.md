@@ -1,6 +1,11 @@
 # GPT 漂流瓶
 
-## Demo
+## Live Demo
+
+[ChatGPT](https://chat.openai.com/g/g-jwR9FdCMq-piao-liu-ping)
+
+
+## Demo Video
 
 See [Tweet](https://twitter.com/OwenYoungZh/status/1725078906003394590)
 
